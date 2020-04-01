@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Header />
+    <main>
+      <BookList v-bind:books="this.results" />
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Header from './components/Header/Header';
+import BookList from './components/BookList/BookList';
+import Footer from './components/Footer/Footer';
+import store from './store/store';
 
 export default {
-  name: "App",
+  name: 'App',
+  store,
   components: {
-    HelloWorld
+    Header,
+    BookList,
+    Footer
+  },
+  computed: {
+    results() {
+      return this.$store.state.books;
+    }
+  },
+  created() {
+    if (!this.$store.state.books.length) {
+      store.dispatch('GET_BOOKS');
+    }
   }
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss"></style>

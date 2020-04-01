@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "SearchBar",
+  name: 'SearchBar',
   props: {}
 };
 </script>

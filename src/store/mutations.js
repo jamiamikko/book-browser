@@ -1,7 +1,7 @@
 export const mutationNames = {
   SET_BOOKS: 'SET_BOOKS',
   START_LOADING: 'START_LOADING',
-  STOP_LOADING: 'STOP_LOADING'
+  STOP_LOADING: 'STOP_LOADING',
 };
 
 export default {
@@ -15,5 +15,5 @@ export default {
 
   [mutationNames.STOP_LOADING](state) {
     state.loading = false;
-  }
+  },
 };

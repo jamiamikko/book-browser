@@ -1,20 +1,36 @@
 <template>
   <div class="book">
-    {{ this.title }}
+    <div class="book__cover-wrapper">
+      <img class="book__cover" v-bind:src="this.covers.thumbnail" />
+    </div>
+    <div class="book__info-wrapper">
+      <p>{{ this.title }}</p>
+      <p>
+        <span v-for="(author, index) in authors" v-bind:key="index">
+          {{ author }}<span v-if="index !== authors.length - 1">, </span>
+        </span>
+      </p>
+    </div>
   </div>
 </template>
 <script>
+import store from '../../store/store';
+
 export default {
   name: 'Book',
+  store,
   props: {
-    title: String
-  }
+    title: String,
+    authors: Array,
+    covers: Object,
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/_variables.scss';
 
 .book {
+  display: flex;
   width: 100%;
   min-height: 4rem;
   box-shadow: 0 0.25rem 0.75rem $gray-4;
@@ -23,6 +39,17 @@ export default {
 
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  &__cover-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.5rem;
+    margin-right: 1rem;
+  }
+
+  &__info-wrapper {
   }
 }
 </style>

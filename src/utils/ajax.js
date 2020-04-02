@@ -2,14 +2,14 @@ const request = require('superagent');
 
 const baseUrl = 'http://openlibrary.org';
 
-export const getBooks = filter =>
+export const getBooks = (filter) =>
   new Promise((resolve, reject) => {
     return request
       .get(`${baseUrl}/search.json?title=${filter}`)
-      .then(res => {
+      .then((res) => {
         resolve(res.body.docs);
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });

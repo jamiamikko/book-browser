@@ -20,8 +20,8 @@ export default {
     return {
       filter: '',
       validations: {
-        filter: new RegExp(/^[A-Za-z0-9 ]+$/)
-      }
+        filter: new RegExp(/^[A-Za-z0-9 ]+$/),
+      },
     };
   },
   methods: {
@@ -31,12 +31,12 @@ export default {
     searchByFilter() {
       if (this.validString(this.filter)) {
         const payload = {
-          filter: this.filter
+          filter: this.filter,
         };
         store.dispatch('FETCH_BOOKS', payload);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

@@ -14,7 +14,9 @@
         <Book
           v-for="book in books"
           v-bind:key="book.key"
-          v-bind:title="book.title_suggest"
+          v-bind:title="book.title"
+          v-bind:authors="book.authors"
+          v-bind:covers="book.covers"
         />
       </div>
     </div>
@@ -31,17 +33,17 @@ export default {
   name: 'BookList',
   store,
   props: {
-    books: Array
+    books: Array,
   },
   components: {
     SearchBar,
-    Book
+    Book,
   },
   computed: {
     loading() {
       return this.$store.state.loading;
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">

@@ -17,6 +17,7 @@
           v-bind:title="book.title"
           v-bind:authors="book.authors"
           v-bind:covers="book.covers"
+          v-bind:year="book.year"
         />
       </div>
     </div>

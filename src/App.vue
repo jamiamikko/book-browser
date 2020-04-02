@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Modal v-if="modalOpen" v-bind:data="modalData" />
     <Header />
     <main>
       <BookList v-bind:books="this.results" />
@@ -12,6 +13,7 @@
 import Header from './components/Header/Header';
 import BookList from './components/BookList/BookList';
 import Footer from './components/Footer/Footer';
+import Modal from './components/Modal/Modal';
 import store from './store/store';
 
 export default {
@@ -21,10 +23,17 @@ export default {
     Header,
     BookList,
     Footer,
+    Modal,
   },
   computed: {
     results() {
       return this.$store.state.books;
+    },
+    modalOpen() {
+      return this.$store.state.modal.open;
+    },
+    modalData() {
+      return this.$store.state.modal.data;
     },
   },
 };

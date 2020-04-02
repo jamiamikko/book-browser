@@ -1,12 +1,25 @@
 <template>
   <div class="book">
-    <div class="book__cover-wrapper">
+    <div class="book__cover-wrapper" @click="openModal">
       <img class="book__cover" v-bind:src="this.covers.thumbnail" />
     </div>
     <div class="book__info-wrapper">
       <p class="book__title">{{ this.title }}</p>
-      <p class="book__authors" v-if="authors">
-        {{ authorsToString }}
+      <p class="book__authors">
+        <span v-if="authors">
+          {{ authorsToString }}
+        </span>
+        <span v-else>
+          Author unknown
+        </span>
+      </p>
+      <p class="book__year">
+        <span v-if="year">
+          {{ this.year }}
+        </span>
+        <span v-else>
+          Year unknown
+        </span>
       </p>
     </div>
   </div>
@@ -21,10 +34,23 @@ export default {
     title: String,
     authors: Array,
     covers: Object,
+    year: Number,
   },
   computed: {
     authorsToString() {
       return this.authors.join(', ');
+    },
+  },
+  methods: {
+    openModal() {
+      const payload = {
+        title: this.title,
+        authors: this.authorsToString,
+        covers: this.covers,
+        year: this.year,
+      };
+
+      this.$store.dispatch('OPEN_MODAL', payload);
     },
   },
 };
@@ -50,6 +76,7 @@ export default {
     justify-content: center;
     width: 5.5rem;
     margin-right: 1rem;
+    cursor: pointer;
   }
 
   &__info-wrapper {
@@ -63,7 +90,11 @@ export default {
   }
 
   &__authors {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  &__year {
+    font-size: 0.75rem;
   }
 }
 </style>

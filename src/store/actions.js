@@ -11,6 +11,7 @@ const FETCH_BOOKS = ({ commit }, payload) => {
           key: book.key,
           title: book.title_suggest,
           authors: book.author_name,
+          year: book.first_publish_year,
           covers: {
             thumbnail: book.cover_i
               ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
@@ -34,7 +35,17 @@ const RESET_BOOKS = ({ commit }) => {
   commit(mutationNames.RESET_BOOKS);
 };
 
+const OPEN_MODAL = ({ commit }, payload) => {
+  commit(mutationNames.OPEN_MODAL, payload);
+};
+
+const CLOSE_MODAL = ({ commit }) => {
+  commit(mutationNames.CLOSE_MODAL);
+};
+
 export default {
   FETCH_BOOKS,
   RESET_BOOKS,
+  OPEN_MODAL,
+  CLOSE_MODAL,
 };

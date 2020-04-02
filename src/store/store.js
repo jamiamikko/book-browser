@@ -9,6 +9,10 @@ Vue.use(Vuex);
 const initialState = {
   books: [],
   loading: false,
+  modal: {
+    open: false,
+    data: null,
+  },
 };
 
 export default new Vuex.Store({

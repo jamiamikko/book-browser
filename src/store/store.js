@@ -7,7 +7,8 @@ import mutations from './mutations';
 Vue.use(Vuex);
 
 const initialState = {
-  books: []
+  books: [],
+  loading: false
 };
 
 export default new Vuex.Store({

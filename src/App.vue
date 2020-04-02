@@ -26,11 +26,6 @@ export default {
     results() {
       return this.$store.state.books;
     }
-  },
-  created() {
-    // if (!this.$store.state.books.length) {
-    //   store.dispatch('GET_BOOKS');
-    // }
   }
 };
 </script>

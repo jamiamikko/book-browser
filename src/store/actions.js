@@ -1,14 +1,19 @@
 import { mutationNames } from './mutations';
 import { getBooks } from '../utils/ajax';
 
-const GET_BOOKS = ({ commit }) => {
-  console.log('Yep');
+const FETCH_BOOKS = ({ commit }, payload) => {
+  commit(mutationNames.START_LOADING);
 
-  getBooks('Great').then(res => {
-    commit(mutationNames.SET_BOOKS, res);
-  });
+  getBooks(payload.filter)
+    .then(res => {
+      commit(mutationNames.SET_BOOKS, res);
+      commit(mutationNames.STOP_LOADING);
+    })
+    .catch(() => {
+      commit(mutationNames.STOP_LOADING);
+    });
 };
 
 export default {
-  GET_BOOKS
+  FETCH_BOOKS
 };

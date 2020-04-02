@@ -1,17 +1,14 @@
 <template>
   <header class="header">
-    <h1 class="header__title">Book Browser</h1>
-    <SearchBar />
+    <div class="header__title-wrapper">
+      <h1 class="header__title">Book Browser</h1>
+    </div>
   </header>
 </template>
 <script>
-import SearchBar from '../SearchBar/SearchBar';
-
 export default {
   name: 'Header',
-  components: {
-    SearchBar
-  }
+  components: {}
 };
 </script>
 <style scoped lang="scss">
@@ -20,12 +17,17 @@ export default {
 .header {
   display: flex;
   align-items: center;
-
+  background-color: $gray-6;
   height: 3rem;
   padding: 0.5rem 1rem;
 
   &__title {
     font-size: 1.875rem;
+    color: $white;
+  }
+
+  &__title-wrapper {
+    min-width: 30%;
   }
 }
 </style>

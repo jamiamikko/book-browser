@@ -28,9 +28,9 @@ export default {
     }
   },
   created() {
-    if (!this.$store.state.books.length) {
-      store.dispatch('GET_BOOKS');
-    }
+    // if (!this.$store.state.books.length) {
+    //   store.dispatch('GET_BOOKS');
+    // }
   }
 };
 </script>

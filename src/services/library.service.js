@@ -1,11 +1,12 @@
-import store from '../store/store';
+import { getBooks } from '../utils/ajax';
 
 class LibraryService {
-  getBooksData() {
-    this.store = store;
-
-    console.log(store);
-  }
+  getBooksByFilter = filter =>
+    new Promise((resolve, reject) => {
+      getBooks(filter)
+        .then(res => resolve(res))
+        .catch(err => reject(err));
+    });
 }
 
 export default new LibraryService();

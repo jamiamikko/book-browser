@@ -14,7 +14,7 @@ const FETCH_BOOKS = ({ commit }, payload) => {
           covers: {
             thumbnail: book.cover_i
               ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
-              : null,
+              : 'https://via.placeholder.com/37x58',
             large: book.cover_i
               ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
               : null,
@@ -30,6 +30,11 @@ const FETCH_BOOKS = ({ commit }, payload) => {
     });
 };
 
+const RESET_BOOKS = ({ commit }) => {
+  commit(mutationNames.RESET_BOOKS);
+};
+
 export default {
   FETCH_BOOKS,
+  RESET_BOOKS,
 };

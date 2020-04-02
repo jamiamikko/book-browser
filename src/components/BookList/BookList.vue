@@ -50,13 +50,15 @@ export default {
 @import '../../assets/scss/_variables.scss';
 
 .book-list {
-  padding: 2rem 1rem;
-  border-bottom: 2px solid $gray-3;
+  padding: 2rem 0;
 
   &__wrapper {
-    width: 80%;
-    margin: 0 auto;
+    min-width: 100%;
     max-width: 75rem;
+    max-height: 52.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem 0;
   }
 
   &__introduction {

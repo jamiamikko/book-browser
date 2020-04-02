@@ -4,8 +4,8 @@
       <img class="book__cover" v-bind:src="this.covers.thumbnail" />
     </div>
     <div class="book__info-wrapper">
-      <p>{{ this.title }}</p>
-      <p>
+      <p class="book__title">{{ this.title }}</p>
+      <p class="book__authors">
         <span v-for="(author, index) in authors" v-bind:key="index">
           {{ author }}<span v-if="index !== authors.length - 1">, </span>
         </span>
@@ -31,11 +31,11 @@ export default {
 
 .book {
   display: flex;
-  width: 100%;
   min-height: 4rem;
   box-shadow: 0 0.25rem 0.75rem $gray-4;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
   padding: 1rem;
+  width: 50%;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -50,6 +50,17 @@ export default {
   }
 
   &__info-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__authors {
+    font-size: 0.8rem;
   }
 }
 </style>

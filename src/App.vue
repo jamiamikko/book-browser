@@ -20,13 +20,13 @@ export default {
   components: {
     Header,
     BookList,
-    Footer
+    Footer,
   },
   computed: {
     results() {
       return this.$store.state.books;
-    }
-  }
+    },
+  },
 };
 </script>
 

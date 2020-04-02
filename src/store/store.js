@@ -8,12 +8,12 @@ Vue.use(Vuex);
 
 const initialState = {
   books: [],
-  loading: false
+  loading: false,
 };
 
 export default new Vuex.Store({
   state: initialState,
   mutations,
   actions,
-  modules: {}
+  modules: {},
 });

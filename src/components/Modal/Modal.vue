@@ -1,8 +1,8 @@
 <template>
   <transition name="modal">
     <div class="modal__mask">
-      <div class="modal__wrapper">
-        <div class="modal__container">
+      <div class="modal__wrapper" @click="closeModal">
+        <div class="modal__container" @click.stop>
           <div class="modal__image-wrapper">
             <img v-bind:src="this.data.covers.large" />
           </div>
@@ -16,10 +16,18 @@
   </transition>
 </template>
 <script>
+import store from '../../store/store';
+
 export default {
   name: 'Modal',
+  store,
   props: {
     data: Object,
+  },
+  methods: {
+    closeModal() {
+      this.$store.dispatch('CLOSE_MODAL');
+    },
   },
 };
 </script>

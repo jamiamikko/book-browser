@@ -114,10 +114,16 @@ export default {
     color: $white;
     height: 2.5rem;
     font-size: 1rem;
-    padding: 0 1rem;
+    border: 1px solid $gray-4;
 
     @include media-min($mobile-bp) {
       height: 2rem;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $white;
+      color: $blue;
     }
 
     &--disabled {

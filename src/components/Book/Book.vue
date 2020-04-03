@@ -3,7 +3,7 @@
     <div class="book__cover-wrapper" @click="openModal">
       <img class="book__cover" v-bind:src="this.covers.thumbnail" />
     </div>
-    <div class="book__info-wrapper">
+    <div class="book__info-wrapper" tabindex="0">
       <p class="book__title">{{ this.title }}</p>
       <p class="book__authors">
         <span v-if="authors">
@@ -35,6 +35,7 @@ export default {
     authors: Array,
     covers: Object,
     year: Number,
+    focusable: Boolean,
   },
   computed: {
     authorsToString() {

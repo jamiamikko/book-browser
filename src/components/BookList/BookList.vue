@@ -12,12 +12,13 @@
       <LoadingIndicator v-if="this.loading" />
       <div v-if="books.length && !this.loading">
         <Book
-          v-for="book in books"
+          v-for="(book, index) in books"
           v-bind:key="book.key"
           v-bind:title="book.title"
           v-bind:authors="book.authors"
           v-bind:covers="book.covers"
           v-bind:year="book.year"
+          v-bind:focusable="index === 0"
         />
       </div>
     </div>

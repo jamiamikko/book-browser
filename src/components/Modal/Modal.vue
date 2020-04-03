@@ -55,10 +55,10 @@ export default {
 
   &__container {
     background-color: $white;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    margin: 0 1rem;
+    padding: 2rem;
     transition: all 0.3s ease;
-    min-width: 30rem;
+    max-width: 20rem;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
   }
 

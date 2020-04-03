@@ -57,6 +57,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/_variables.scss';
+@import '../../assets/scss/_mixins.scss';
 
 .book {
   display: flex;
@@ -64,7 +65,11 @@ export default {
   box-shadow: 0 0.25rem 0.75rem $gray-4;
   margin: 0 auto 1rem auto;
   padding: 2rem 1rem;
-  width: 50%;
+  width: 90%;
+
+  @include media-min($tablet-bp) {
+    width: 50%;
+  }
 
   &:last-of-type {
     margin-bottom: 0;

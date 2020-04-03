@@ -64,6 +64,7 @@ export default {
 
   &__introduction {
     text-align: center;
+    padding: 0 1rem;
     margin-bottom: 2rem;
   }
 }

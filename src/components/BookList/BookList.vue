@@ -9,7 +9,7 @@
     </div>
     <SearchBar />
     <div class="book-list__wrapper">
-      <p v-if="this.loading">Loading...</p>
+      <LoadingIndicator v-if="this.loading" />
       <div v-if="books.length && !this.loading">
         <Book
           v-for="book in books"
@@ -26,6 +26,7 @@
 
 <script>
 import SearchBar from '../SearchBar/SearchBar';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 import Book from '../Book/Book';
 
 import store from '../../store/store';
@@ -38,6 +39,7 @@ export default {
   },
   components: {
     SearchBar,
+    LoadingIndicator,
     Book,
   },
   computed: {

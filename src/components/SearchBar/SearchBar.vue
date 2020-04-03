@@ -114,6 +114,7 @@ export default {
     color: $white;
     height: 2.5rem;
     font-size: 1rem;
+    padding: 0 1rem;
 
     @include media-min($mobile-bp) {
       height: 2rem;

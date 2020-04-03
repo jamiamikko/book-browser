@@ -6,8 +6,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 p {
   margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

@@ -1,8 +1,8 @@
 <template>
   <transition name="modal">
     <div class="modal__mask">
-      <div class="modal__wrapper">
-        <div class="modal__container">
+      <div class="modal__wrapper" @click="closeModal">
+        <div class="modal__container" @click.stop>
           <div class="modal__image-wrapper">
             <img v-bind:src="this.data.covers.large" />
           </div>
@@ -16,13 +16,18 @@
   </transition>
 </template>
 <script>
+import store from '../../store/store';
+
 export default {
   name: 'Modal',
+  store,
   props: {
     data: Object,
   },
-  mounted() {
-    console.log(this.data);
+  methods: {
+    closeModal() {
+      this.$store.dispatch('CLOSE_MODAL');
+    },
   },
 };
 </script>
@@ -50,10 +55,10 @@ export default {
 
   &__container {
     background-color: $white;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+    margin: 0 1rem;
+    padding: 2rem;
     transition: all 0.3s ease;
-    min-width: 30rem;
+    max-width: 20rem;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
   }
 

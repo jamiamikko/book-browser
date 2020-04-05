@@ -1,21 +1,16 @@
 <template>
   <div class="book">
     <div class="book__cover-wrapper" @click="openModal" v-lazyload>
-      <img alt="" class="book__cover" v-bind:data-src="this.covers.thumbnail" />
+      <img alt="" class="book__cover" v-bind:data-src="covers.thumbnail" />
     </div>
     <div class="book__info-wrapper" tabindex="0">
-      <p class="book__title">{{ this.title }}</p>
+      <p class="book__title">{{ title }}</p>
       <p class="book__authors">
-        <span v-if="authors">
-          {{ authorsToString }}
-        </span>
-        <span v-else>
-          Author unknown
-        </span>
+        {{ authors | joinList }}
       </p>
       <p class="book__year">
         <span v-if="year">
-          {{ this.year }}
+          {{ year }}
         </span>
         <span v-else>
           Year unknown
@@ -26,6 +21,7 @@
 </template>
 <script>
 import store from '../../store/store';
+import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
 
 export default {
@@ -34,22 +30,20 @@ export default {
   directives: {
     lazyload,
   },
+  filters: {
+    joinList,
+  },
   props: {
     title: String,
     authors: Array,
     covers: Object,
     year: Number,
   },
-  computed: {
-    authorsToString() {
-      return this.authors.join(', ');
-    },
-  },
   methods: {
     openModal() {
       const payload = {
         title: this.title,
-        authors: this.authorsToString,
+        authors: this.authors,
         covers: this.covers,
         year: this.year,
       };

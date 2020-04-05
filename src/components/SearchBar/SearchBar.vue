@@ -122,19 +122,23 @@ export default {
     height: 2.5rem;
     font-size: 1rem;
     border: 1px solid $gray-4;
+    cursor: pointer;
 
     @include media-min($mobile-bp) {
       height: 2rem;
     }
 
-    &:hover,
-    &:focus {
-      background-color: $white;
-      color: $blue;
+    &:not(.search-bar__button--disabled) {
+      &:hover,
+      &:focus {
+        background-color: $white;
+        color: $blue;
+      }
     }
 
     &--disabled {
       background-color: $gray-6;
+      cursor: auto;
     }
   }
 }

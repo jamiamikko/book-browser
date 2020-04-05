@@ -4,11 +4,19 @@
       <div class="modal__wrapper" @click="closeModal">
         <div class="modal__container" @click.stop>
           <div class="modal__image-wrapper" v-lazyload>
-            <img alt="" v-bind:data-src="this.data.covers.large" />
+            <img alt="" v-bind:data-src="data.covers.large" />
           </div>
           <div class="modal__information-wrapper">
-            <h2 class="modal__title">{{ data.title }} - {{ data.year }}</h2>
-            <p class="modal__authors">{{ data.authors }}</p>
+            <h2 class="modal__title">
+              {{ data.title }} -
+              <span v-if="data.year">
+                {{ data.year }}
+              </span>
+              <span v-else>
+                Year unknown
+              </span>
+            </h2>
+            <p class="modal__authors">{{ data.authors | joinList }}</p>
           </div>
         </div>
       </div>
@@ -17,13 +25,17 @@
 </template>
 <script>
 import store from '../../store/store';
+import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
 
 export default {
-  name: 'Modal',
+  name: 'BookModal',
   store,
   directives: {
     lazyload,
+  },
+  filters: {
+    joinList,
   },
   props: {
     data: Object,
@@ -32,7 +44,7 @@ export default {
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
     },
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>

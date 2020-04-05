@@ -4,7 +4,7 @@
       <div class="modal__wrapper" @click="closeModal">
         <div class="modal__container" @click.stop>
           <div class="modal__image-wrapper" v-lazyload>
-            <img alt="" v-bind:data-src="this.data.covers.large" />
+            <img alt="" v-bind:data-src="data.covers.large" />
           </div>
           <div class="modal__information-wrapper">
             <h2 class="modal__title">
@@ -44,10 +44,7 @@ export default {
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
     },
-  },
-  mounted() {
-    console.log(this.data.authors);
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>

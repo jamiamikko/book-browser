@@ -1,7 +1,7 @@
 <template>
   <div class="book">
-    <div class="book__cover-wrapper" @click="openModal">
-      <img class="book__cover" v-bind:src="this.covers.thumbnail" />
+    <div class="book__cover-wrapper" @click="openModal" v-lazyload>
+      <img alt="" class="book__cover" v-bind:data-src="this.covers.thumbnail" />
     </div>
     <div class="book__info-wrapper" tabindex="0">
       <p class="book__title">{{ this.title }}</p>
@@ -26,16 +26,19 @@
 </template>
 <script>
 import store from '../../store/store';
+import lazyload from '../../directives/lazyload';
 
 export default {
   name: 'Book',
   store,
+  directives: {
+    lazyload,
+  },
   props: {
     title: String,
     authors: Array,
     covers: Object,
     year: Number,
-    focusable: Boolean,
   },
   computed: {
     authorsToString() {

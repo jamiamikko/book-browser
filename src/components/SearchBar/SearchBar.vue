@@ -4,12 +4,14 @@
     v-bind:class="{ 'search-bar__wrapper--results-found': hasResults }"
   >
     <div class="search-bar__container">
+      <label for="search" class="search-bar__label">Search</label>
       <input
         class="search-bar__input"
         placeholder="Search by the title of the book"
         aria-placeholder="Search by the title of the book"
         type="text"
         v-model="filter"
+        id="search"
         @change="searchByFilter"
       />
       <button
@@ -66,6 +68,7 @@ export default {
 </script>
 <style scoped lang="scss">
 @import '../../assets/scss/_variables.scss';
+@import '../../assets/scss/_placeholders.scss';
 @import '../../assets/scss/_mixins.scss';
 
 .search-bar {
@@ -91,6 +94,10 @@ export default {
     @include media-min($tablet-bp) {
       width: 30%;
     }
+  }
+
+  &__label {
+    @extend %visually-hidden;
   }
 
   &__input {
@@ -127,7 +134,7 @@ export default {
     }
 
     &--disabled {
-      background-color: $gray-4;
+      background-color: $gray-6;
     }
   }
 }

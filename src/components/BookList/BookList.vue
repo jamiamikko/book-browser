@@ -13,12 +13,11 @@
       <div v-if="books.length && !this.loading">
         <Book
           v-for="(book, index) in books"
-          v-bind:key="book.key"
+          v-bind:key="`${index}-${book.key}`"
           v-bind:title="book.title"
           v-bind:authors="book.authors"
           v-bind:covers="book.covers"
           v-bind:year="book.year"
-          v-bind:focusable="index === 0"
         />
       </div>
     </div>
@@ -27,10 +26,10 @@
 
 <script>
 import SearchBar from '../SearchBar/SearchBar';
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
-import Book from '../Book/Book';
-
 import store from '../../store/store';
+
+const LoadingIndicator = () => import('../LoadingIndicator/LoadingIndicator');
+const Book = () => import('../Book/Book');
 
 export default {
   name: 'BookList',

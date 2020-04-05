@@ -14,11 +14,11 @@ const FETCH_BOOKS = ({ commit }, payload) => {
           year: book.first_publish_year,
           covers: {
             thumbnail: book.cover_i
-              ? `http://covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
-              : 'https://via.placeholder.com/37x58',
+              ? `//covers.openlibrary.org/b/id/${book.cover_i}-S.jpg`
+              : '//via.placeholder.com/37x58',
             large: book.cover_i
-              ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-              : 'https://via.placeholder.com/333/500',
+              ? `//covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
+              : '//via.placeholder.com/333/500',
           },
         };
       });

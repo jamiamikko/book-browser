@@ -3,6 +3,10 @@
     <div class="modal__mask">
       <div class="modal__wrapper" @click="closeModal">
         <div class="modal__container" @click.stop>
+          <button class="modal__close-button" @click="closeModal">
+            <close-icon></close-icon>
+            <span class="modal__close-label">Close modal</span>
+          </button>
           <div class="modal__image-wrapper" v-lazyload>
             <img alt="" v-bind:data-src="data.covers.large" />
           </div>
@@ -27,6 +31,7 @@
 import store from '../../store/store';
 import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
+import CloseIcon from 'vue-material-design-icons/Close';
 
 export default {
   name: 'BookModal',
@@ -40,15 +45,19 @@ export default {
   props: {
     data: Object,
   },
+  components: {
+    'close-icon': CloseIcon,
+  },
   methods: {
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
     },
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/_variables.scss';
+@import '../../assets/scss/_placeholders.scss';
 
 .modal {
   &__mask {
@@ -72,7 +81,6 @@ export default {
   &__container {
     background-color: $white;
     margin: 0 1rem;
-    padding: 2rem;
     transition: all 0.3s ease;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
   }
@@ -80,10 +88,12 @@ export default {
   &__image-wrapper {
     display: flex;
     justify-content: center;
+    margin: 1rem;
   }
 
   &__information-wrapper {
     padding: 1rem 0.5rem;
+    margin: 0 1rem 1rem 1rem;
   }
 
   &__title {
@@ -93,6 +103,25 @@ export default {
 
   &__authors {
     font-size: 1rem;
+  }
+
+  &__close-button {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 1.75rem;
+    margin: 0.5rem 0 0 0.5rem;
+    cursor: pointer;
+    color: $gray-6;
+
+    &:hover,
+    &:focus {
+      color: $blue;
+    }
+  }
+
+  &__close-label {
+    @extend %visually-hidden;
   }
 }
 </style>

@@ -62,7 +62,6 @@ export default {
     margin: 0 1rem;
     padding: 2rem;
     transition: all 0.3s ease;
-    // max-width: 20rem;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
   }
 

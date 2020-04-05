@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <book-modal v-if="modalOpen" v-bind:data="modalData"></book-modal>
-    <header-block></header-block>
+    <the-header></the-header>
     <main>
       <book-list v-bind:books="this.results"></book-list>
     </main>
-    <footer-block></footer-block>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
-import HeaderBlock from './components/HeaderBlock/HeaderBlock';
+import TheHeader from './components/TheHeader/TheHeader';
 import BookList from './components/BookList/BookList';
-import FooterBlock from './components/FooterBlock/FooterBlock';
+import TheFooter from './components/TheFooter/TheFooter';
 import store from './store/store';
 
 const BookModal = () => import('./components/BookModal/BookModal');
@@ -21,9 +21,9 @@ export default {
   name: 'App',
   store,
   components: {
-    'header-block': HeaderBlock,
+    'the-header': TheHeader,
     'book-list': BookList,
-    'footer-block': FooterBlock,
+    'the-footer': TheFooter,
     'book-modal': BookModal,
   },
   computed: {

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'HeaderBlock',
+  name: 'TheHeader',
 };
 </script>
 <style scoped lang="scss">

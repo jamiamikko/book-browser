@@ -20,7 +20,7 @@ import store from '../../store/store';
 import lazyload from '../../directives/lazyload';
 
 export default {
-  name: 'Modal',
+  name: 'BookModal',
   store,
   directives: {
     lazyload,

@@ -11,7 +11,7 @@
     <div class="book-list__wrapper">
       <LoadingIndicator v-if="this.loading" />
       <div v-if="books.length && !this.loading">
-        <Book
+        <BookItem
           v-for="(book, index) in books"
           v-bind:key="`${index}-${book.key}`"
           v-bind:title="book.title"
@@ -29,7 +29,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import store from '../../store/store';
 
 const LoadingIndicator = () => import('../LoadingIndicator/LoadingIndicator');
-const Book = () => import('../Book/Book');
+const BookItem = () => import('../BookItem/BookItem');
 
 export default {
   name: 'BookList',
@@ -40,7 +40,7 @@ export default {
   components: {
     SearchBar,
     LoadingIndicator,
-    Book,
+    BookItem,
   },
   computed: {
     loading() {

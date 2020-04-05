@@ -29,7 +29,7 @@ import store from '../../store/store';
 import lazyload from '../../directives/lazyload';
 
 export default {
-  name: 'Book',
+  name: 'BookItem',
   store,
   directives: {
     lazyload,

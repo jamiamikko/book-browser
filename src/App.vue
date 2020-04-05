@@ -1,30 +1,30 @@
 <template>
   <div id="app">
-    <Modal v-if="modalOpen" v-bind:data="modalData" />
-    <Header />
+    <BookModal v-if="modalOpen" v-bind:data="modalData" />
+    <HeaderBlock />
     <main>
       <BookList v-bind:books="this.results" />
     </main>
-    <Footer />
+    <FooterBlock />
   </div>
 </template>
 
 <script>
-import Header from './components/Header/Header';
+import HeaderBlock from './components/HeaderBlock/HeaderBlock';
 import BookList from './components/BookList/BookList';
-import Footer from './components/Footer/Footer';
+import FooterBlock from './components/FooterBlock/FooterBlock';
 import store from './store/store';
 
-const Modal = () => import('./components/Modal/Modal');
+const BookModal = () => import('./components/BookModal/BookModal');
 
 export default {
   name: 'App',
   store,
   components: {
-    Header,
+    HeaderBlock,
     BookList,
-    Footer,
-    Modal,
+    FooterBlock,
+    BookModal,
   },
   computed: {
     results() {

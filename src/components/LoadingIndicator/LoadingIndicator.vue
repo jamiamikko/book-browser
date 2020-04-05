@@ -7,7 +7,9 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: 'LoadingIndicator',
+};
 </script>
 <style lang="scss" scoped>
 @import '../../assets/scss/_variables.scss';

@@ -13,8 +13,9 @@
 import Header from './components/Header/Header';
 import BookList from './components/BookList/BookList';
 import Footer from './components/Footer/Footer';
-import Modal from './components/Modal/Modal';
 import store from './store/store';
+
+const Modal = () => import('./components/Modal/Modal');
 
 export default {
   name: 'App',
@@ -38,5 +39,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss"></style>

@@ -1,14 +1,11 @@
 <template>
   <header class="header">
-    <div class="header__title-wrapper">
-      <h1 class="header__title">Book Browser</h1>
-    </div>
+    <h1 class="header__title">Book Browser</h1>
   </header>
 </template>
 <script>
 export default {
   name: 'Header',
-  components: {},
 };
 </script>
 <style scoped lang="scss">
@@ -23,16 +20,13 @@ export default {
   padding: 0.5rem 1rem;
 
   &__title {
+    margin: 0;
     font-size: 1.5rem;
     color: $white;
 
     @include media-min($mobile-bp) {
       font-size: 1.875rem;
     }
-  }
-
-  &__title-wrapper {
-    min-width: 30%;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 const request = require('superagent');
 
-const baseUrl = 'http://openlibrary.org';
+const baseUrl = '//openlibrary.org';
 
 export const getBooks = (filter) =>
   new Promise((resolve, reject) => {

@@ -3,8 +3,8 @@
     <div class="modal__mask">
       <div class="modal__wrapper" @click="closeModal">
         <div class="modal__container" @click.stop>
-          <div class="modal__image-wrapper">
-            <img v-bind:src="this.data.covers.large" />
+          <div class="modal__image-wrapper" v-lazyload>
+            <img alt="" v-bind:data-src="this.data.covers.large" />
           </div>
           <div class="modal__information-wrapper">
             <h2 class="modal__title">{{ data.title }} - {{ data.year }}</h2>
@@ -17,10 +17,14 @@
 </template>
 <script>
 import store from '../../store/store';
+import lazyload from '../../directives/lazyload';
 
 export default {
   name: 'Modal',
   store,
+  directives: {
+    lazyload,
+  },
   props: {
     data: Object,
   },
@@ -58,7 +62,7 @@ export default {
     margin: 0 1rem;
     padding: 2rem;
     transition: all 0.3s ease;
-    max-width: 20rem;
+    // max-width: 20rem;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
   }
 

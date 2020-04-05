@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <BookModal v-if="modalOpen" v-bind:data="modalData" />
-    <HeaderBlock />
+    <book-modal v-if="modalOpen" v-bind:data="modalData"></book-modal>
+    <header-block></header-block>
     <main>
-      <BookList v-bind:books="this.results" />
+      <book-list v-bind:books="this.results"></book-list>
     </main>
-    <FooterBlock />
+    <footer-block></footer-block>
   </div>
 </template>
 
@@ -21,10 +21,10 @@ export default {
   name: 'App',
   store,
   components: {
-    HeaderBlock,
-    BookList,
-    FooterBlock,
-    BookModal,
+    'header-block': HeaderBlock,
+    'book-list': BookList,
+    'footer-block': FooterBlock,
+    'book-modal': BookModal,
   },
   computed: {
     results() {

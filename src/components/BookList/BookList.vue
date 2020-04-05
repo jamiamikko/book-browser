@@ -7,18 +7,18 @@
         Start searching for interesting books by typing in the search bar.
       </p>
     </div>
-    <SearchBar />
+    <search-bar></search-bar>
     <div class="book-list__wrapper">
-      <LoadingIndicator v-if="this.loading" />
+      <loading-indicator v-if="this.loading"></loading-indicator>
       <div v-if="books.length && !this.loading">
-        <BookItem
+        <book-item
           v-for="(book, index) in books"
           v-bind:key="`${index}-${book.key}`"
           v-bind:title="book.title"
           v-bind:authors="book.authors"
           v-bind:covers="book.covers"
           v-bind:year="book.year"
-        />
+        ></book-item>
       </div>
     </div>
   </section>
@@ -34,13 +34,13 @@ const BookItem = () => import('../BookItem/BookItem');
 export default {
   name: 'BookList',
   store,
+  components: {
+    'search-bar': SearchBar,
+    'loading-indicator': LoadingIndicator,
+    'book-item': BookItem,
+  },
   props: {
     books: Array,
-  },
-  components: {
-    SearchBar,
-    LoadingIndicator,
-    BookItem,
   },
   computed: {
     loading() {

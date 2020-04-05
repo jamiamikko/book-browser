@@ -3,7 +3,7 @@
     <div class="modal__mask">
       <div class="modal__wrapper" @click="closeModal">
         <div class="modal__container" @click.stop>
-          <button class="modal__close-button" @click="closeModal">
+          <button class="modal__close-button" @click="closeModal" v-focus>
             <close-icon></close-icon>
             <span class="modal__close-label">Close modal</span>
           </button>
@@ -31,6 +31,7 @@
 import store from '../../store/store';
 import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
+import focus from '../../directives/focus';
 import CloseIcon from 'vue-material-design-icons/Close';
 
 export default {
@@ -38,6 +39,7 @@ export default {
   store,
   directives: {
     lazyload,
+    focus,
   },
   filters: {
     joinList,

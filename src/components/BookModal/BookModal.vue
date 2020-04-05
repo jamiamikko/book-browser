@@ -8,7 +8,11 @@
             <span class="modal__close-label">Close modal</span>
           </button>
           <div class="modal__image-wrapper" v-lazyload>
-            <img alt="" v-bind:data-src="data.covers.large" />
+            <img
+              class="modal__image"
+              alt=""
+              v-bind:data-src="data.covers.large"
+            />
           </div>
           <div class="modal__information-wrapper">
             <h2 class="modal__title">
@@ -85,6 +89,12 @@ export default {
     margin: 0 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+
+  &__image {
+    max-height: 31.25rem;
   }
 
   &__image-wrapper {

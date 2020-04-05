@@ -1,24 +1,21 @@
-# book-browser
+# Book Browser
 
-## Project setup
+Vue.js application for searching books. Powered by [Open Library Developers API](https://openlibrary.org/developers/api).
+
+## Setup
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Commands
 
-### Compiles and minifies for production
-```
-yarn build
-```
+`yarn serve` - Compiles and hot-reloads for development
 
-### Lints and fixes files
-```
-yarn lint
-```
+`yarn build` - Compiles and minifies for production
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`yarn lint` - Lints and fixes files
+
+`yarn deploy` - Deploy the application. [Firebase hosting](https://firebase.google.com/docs/hosting/quickstart) configuration required.
+
+### Application URL
+[https://book-browser-c834b.web.app/](https://book-browser-c834b.web.app/)

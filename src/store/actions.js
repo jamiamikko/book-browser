@@ -18,7 +18,7 @@ const FETCH_BOOKS = ({ commit }, payload) => {
               : 'https://via.placeholder.com/37x58',
             large: book.cover_i
               ? `http://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg`
-              : null,
+              : 'https://via.placeholder.com/333/500',
           },
         };
       });

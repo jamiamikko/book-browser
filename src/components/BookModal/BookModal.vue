@@ -109,7 +109,7 @@ export default {
   }
 
   &__image {
-    max-height: 30rem;
+    max-height: calc(100vh - 18rem);
   }
 
   &__image-wrapper {

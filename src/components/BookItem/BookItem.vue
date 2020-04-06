@@ -85,6 +85,7 @@ export default {
     background: none;
     border: none;
     font-size: 1rem;
+    text-align: left;
   }
 
   &__title {

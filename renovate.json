@@ -1,10 +1,10 @@
 {
   "extends": [
-    "config:base",
-    "automerge": false,
+    "config:base"
+  ],
+  "automerge": false,
     "packageRules": [{
       "updateTypes": ['pin', 'patch'],
        "automerge": true
     }]
-  ]
 }

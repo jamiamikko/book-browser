@@ -3,8 +3,10 @@
     "config:base"
   ],
   "automerge": false,
-    "packageRules": [{
-      "updateTypes": ["pin", "patch"],
-       "automerge": true
-    }]
+  "patch": {
+    "automerge": true
+  },
+  "pin": {
+    "automerge": true
+  }
 }

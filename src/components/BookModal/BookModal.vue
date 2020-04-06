@@ -54,6 +54,12 @@ export default {
   components: {
     'close-icon': CloseIcon,
   },
+  mounted() {
+    document.body.classList.add('modal-open');
+  },
+  destroyed() {
+    document.body.classList.remove('modal-open');
+  },
   methods: {
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
@@ -88,13 +94,12 @@ export default {
     background-color: $white;
     margin: 0 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0.25rem 0.75rem $gray-4;
+    box-shadow: 0 0.25rem 0.75rem $gray;
     max-height: calc(100vh - 2rem);
-    overflow-y: auto;
   }
 
   &__image {
-    max-height: 31.25rem;
+    max-height: 30rem;
   }
 
   &__image-wrapper {
@@ -111,10 +116,12 @@ export default {
   &__title {
     margin: 0 0 0.75rem;
     font-size: 1.4rem;
+    color: black;
   }
 
   &__authors {
     font-size: 1rem;
+    color: black;
   }
 
   &__close-button {
@@ -124,7 +131,7 @@ export default {
     font-size: 1.75rem;
     margin: 0.5rem 0 0 0.5rem;
     cursor: pointer;
-    color: $gray-6;
+    color: $grayDark;
 
     &:hover,
     &:focus {

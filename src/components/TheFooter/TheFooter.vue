@@ -28,10 +28,12 @@ export default {
   &__title {
     font-size: 1rem;
     margin: 0 0 0.1rem;
+    color: $black;
   }
 
   &__text {
     font-size: 0.75rem;
+    color: $grayDark;
   }
 }
 </style>

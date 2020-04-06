@@ -3,30 +3,28 @@
     <div class="book__cover-wrapper" @click="openModal" v-lazyload>
       <img alt="" class="book__cover" v-bind:data-src="covers.thumbnail" />
     </div>
-    <div class="book__info-wrapper" tabindex="0">
-      <p class="book__title">{{ title }}</p>
-      <p class="book__authors">
+    <button class="book__info-wrapper" @click="openModal">
+      <span class="book__title">{{ title }}</span>
+      <span class="book__authors">
         {{ authors | joinList }}
-      </p>
-      <p class="book__year">
+      </span>
+      <span class="book__year">
         <span v-if="year">
           {{ year }}
         </span>
         <span v-else>
           Year unknown
         </span>
-      </p>
-    </div>
+      </span>
+    </button>
   </div>
 </template>
 <script>
-import store from '../../store/store';
 import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
 
 export default {
   name: 'BookItem',
-  store,
   directives: {
     lazyload,
   },
@@ -69,10 +67,6 @@ export default {
     width: 50%;
   }
 
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
   &__cover-wrapper {
     display: flex;
     align-items: center;
@@ -86,20 +80,26 @@ export default {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    cursor: pointer;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1rem;
   }
 
   &__title {
     font-weight: bold;
+    margin-bottom: 0.25em;
     color: $black;
   }
 
   &__authors {
-    font-size: 0.75rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.75em;
+    margin-bottom: 0.5em;
     color: $black;
   }
   &__year {
-    font-size: 0.75rem;
+    font-size: 0.75em;
     color: $black;
   }
 }

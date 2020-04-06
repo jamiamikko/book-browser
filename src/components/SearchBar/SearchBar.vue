@@ -26,11 +26,8 @@
   </div>
 </template>
 <script>
-import store from '../../store/store';
-
 export default {
   name: 'SearchBar',
-  store,
   data() {
     return {
       filter: '',
@@ -53,14 +50,15 @@ export default {
     },
     searchByFilter() {
       if (this.emptyString(this.filter)) {
-        store.dispatch('RESET_BOOKS');
+        this.$store.dispatch('RESET_BOOKS');
       }
 
       if (this.validString(this.filter)) {
         const payload = {
           filter: this.filter,
         };
-        store.dispatch('FETCH_BOOKS', payload);
+
+        this.$store.dispatch('FETCH_BOOKS', payload);
       }
     },
   },

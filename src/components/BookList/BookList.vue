@@ -26,14 +26,12 @@
 
 <script>
 import SearchBar from '../SearchBar/SearchBar';
-import store from '../../store/store';
 
 const LoadingIndicator = () => import('../LoadingIndicator/LoadingIndicator');
 const BookItem = () => import('../BookItem/BookItem');
 
 export default {
   name: 'BookList',
-  store,
   components: {
     'search-bar': SearchBar,
     'loading-indicator': LoadingIndicator,
@@ -60,7 +58,6 @@ export default {
     max-width: 75rem;
     max-height: 52.5rem;
     overflow-y: auto;
-    overflow-x: hidden;
     padding: 2rem 0;
   }
 

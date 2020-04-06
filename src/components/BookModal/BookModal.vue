@@ -2,7 +2,12 @@
   <transition name="modal">
     <div class="modal__mask">
       <div class="modal__wrapper" @click="closeModal">
-        <div class="modal__container" @click.stop>
+        <div
+          class="modal__container"
+          @click.stop
+          role="dialog"
+          aria-modal="true"
+        >
           <button class="modal__close-button" @click="closeModal" v-focus>
             <close-icon></close-icon>
             <span class="modal__close-label">Close modal</span>
@@ -32,7 +37,6 @@
   </transition>
 </template>
 <script>
-import store from '../../store/store';
 import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
 import focus from '../../directives/focus';
@@ -40,7 +44,6 @@ import CloseIcon from 'vue-material-design-icons/Close';
 
 export default {
   name: 'BookModal',
-  store,
   directives: {
     lazyload,
     focus,
@@ -56,11 +59,18 @@ export default {
   },
   mounted() {
     document.body.classList.add('modal-open');
+    document.addEventListener('keyup', this.closeModalOnEscape);
   },
   destroyed() {
     document.body.classList.remove('modal-open');
+    document.removeEventListener('keyup', this.closeModalOnEscape);
   },
   methods: {
+    closeModalOnEscape(event) {
+      if (event.keyCode === 27) {
+        this.closeModal();
+      }
+    },
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
     },

@@ -1,9 +1,9 @@
 <template>
   <section class="book-list">
     <div class="book-list__introduction">
-      <h2>Hi there!</h2>
-      <p>Welcome to Book Browser!</p>
-      <p>
+      <h2 class="book-list__title">Hi there!</h2>
+      <p class="book-list__text">Welcome to Book Browser!</p>
+      <p class="book-list__text">
         Start searching for interesting books by typing in the search bar.
       </p>
     </div>
@@ -68,6 +68,14 @@ export default {
     text-align: center;
     padding: 0 1rem;
     margin-bottom: 2rem;
+  }
+
+  &__title {
+    color: $black;
+  }
+
+  &__text {
+    color: $black;
   }
 }
 </style>

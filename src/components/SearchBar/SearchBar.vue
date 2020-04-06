@@ -107,12 +107,16 @@ export default {
     font-size: 0.8rem;
     color: $black;
     margin-bottom: 1rem;
-    border: 1px solid $gray-4;
+    border: 1px solid $gray;
 
     @include media-min($mobile-bp) {
       height: 2rem;
       margin-right: 1rem;
       margin-bottom: 0;
+    }
+
+    &::placeholder {
+      color: $grayDark;
     }
   }
 
@@ -121,7 +125,7 @@ export default {
     color: $white;
     height: 2.5rem;
     font-size: 1rem;
-    border: 1px solid $gray-4;
+    border: none;
     cursor: pointer;
 
     @include media-min($mobile-bp) {
@@ -133,11 +137,12 @@ export default {
       &:focus {
         background-color: $white;
         color: $blue;
+        border: 1px solid $gray;
       }
     }
 
     &--disabled {
-      background-color: $gray-6;
+      background-color: $grayDark;
       cursor: auto;
     }
   }

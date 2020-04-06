@@ -60,7 +60,7 @@ export default {
 .book {
   display: flex;
   min-height: 4rem;
-  box-shadow: 0 0.25rem 0.75rem $gray-4;
+  box-shadow: 0 0.25rem 0.75rem $gray;
   margin: 0 auto 1rem auto;
   padding: 2rem 1rem;
   width: 90%;
@@ -90,14 +90,17 @@ export default {
 
   &__title {
     font-weight: bold;
+    color: $black;
   }
 
   &__authors {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
+    color: $black;
   }
   &__year {
     font-size: 0.75rem;
+    color: $black;
   }
 }
 </style>

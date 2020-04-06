@@ -4,7 +4,7 @@
   ],
   "automerge": false,
     "packageRules": [{
-      "updateTypes": ['pin', 'patch'],
+      "updateTypes": ["pin", "patch"],
        "automerge": true
     }]
 }

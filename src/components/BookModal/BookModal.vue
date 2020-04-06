@@ -54,6 +54,12 @@ export default {
   components: {
     'close-icon': CloseIcon,
   },
+  mounted() {
+    document.body.classList.add('modal-open');
+  },
+  destroyed() {
+    document.body.classList.remove('modal-open');
+  },
   methods: {
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
@@ -90,11 +96,10 @@ export default {
     transition: all 0.3s ease;
     box-shadow: 0 0.25rem 0.75rem $gray-4;
     max-height: calc(100vh - 2rem);
-    overflow-y: auto;
   }
 
   &__image {
-    max-height: 31.25rem;
+    max-height: 30rem;
   }
 
   &__image-wrapper {

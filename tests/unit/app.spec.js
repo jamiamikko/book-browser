@@ -3,6 +3,7 @@ import App from '../../src/App.vue';
 import TheHeader from '../../src/components/TheHeader/TheHeader';
 import BookList from '../../src/components/BookList/BookList';
 import TheFooter from '../../src/components/TheFooter/TheFooter';
+import BookModal from '../../src/components/BookModal/BookModal';
 
 let wrapper;
 
@@ -21,6 +22,7 @@ describe('App.vue', () => {
 
   it('has child components', () => {
     expect(wrapper.find(TheHeader)).toBeTruthy();
+    expect(wrapper.find(BookModal)).toBeTruthy();
     expect(wrapper.find(BookList)).toBeTruthy();
     expect(wrapper.find(TheFooter)).toBeTruthy();
   });

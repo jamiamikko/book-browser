@@ -22,8 +22,8 @@ describe('App.vue', () => {
 
   it('has child components', () => {
     expect(wrapper.find(TheHeader)).toBeTruthy();
-    expect(wrapper.find(BookModal)).toBeTruthy();
     expect(wrapper.find(BookList)).toBeTruthy();
     expect(wrapper.find(TheFooter)).toBeTruthy();
+    expect(wrapper.find(BookModal)).toBeTruthy();
   });
 });

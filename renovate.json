@@ -2,10 +2,11 @@
   "extends": [
     "config:base"
   ],
-  "patch": {
-    "automerge": true
+  "automerge": true,
+  "major": {
+    "automerge": false
   },
-  "pin": {
-    "automerge": true
+  "minor": {
+    "automerge": false
   }
 }

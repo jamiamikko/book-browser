@@ -1128,7 +1128,7 @@
   dependencies:
     "@vue/cli-shared-utils" "^4.3.0"
 
-"@vue/cli-plugin-unit-jest@~4.3.0":
+"@vue/cli-plugin-unit-jest@4.3.0":
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-jest/-/cli-plugin-unit-jest-4.3.0.tgz#f80289cbe4c8f82fb2c69de0af1161a223b40dc9"
   dependencies:

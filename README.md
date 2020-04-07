@@ -14,9 +14,11 @@ yarn install
 
 `yarn build` - Compiles and minifies for production
 
+`yarn test` - Run unit tests
+
 `yarn lint` - Lints and fixes files
 
-`yarn deploy` - Deploy the application. [Firebase hosting](https://firebase.google.com/docs/hosting/quickstart) configuration required.
+`yarn deploy` - Run tests, build for production and deploy the application. [Firebase hosting](https://firebase.google.com/docs/hosting/quickstart) configuration required.
 
 ### Dependency updates
 

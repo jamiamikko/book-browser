@@ -1,9 +1,9 @@
 <template>
   <section class="book-list">
     <div class="book-list__introduction">
-      <h2>Hi there!</h2>
-      <p>Welcome to Book Browser!</p>
-      <p>
+      <h2 class="book-list__title">Hi there!</h2>
+      <p class="book-list__text">Welcome to Book Browser!</p>
+      <p class="book-list__text">
         Start searching for interesting books by typing in the search bar.
       </p>
     </div>
@@ -26,14 +26,12 @@
 
 <script>
 import SearchBar from '../SearchBar/SearchBar';
-import store from '../../store/store';
 
 const LoadingIndicator = () => import('../LoadingIndicator/LoadingIndicator');
 const BookItem = () => import('../BookItem/BookItem');
 
 export default {
   name: 'BookList',
-  store,
   components: {
     'search-bar': SearchBar,
     'loading-indicator': LoadingIndicator,
@@ -60,7 +58,6 @@ export default {
     max-width: 75rem;
     max-height: 52.5rem;
     overflow-y: auto;
-    overflow-x: hidden;
     padding: 2rem 0;
   }
 
@@ -68,6 +65,14 @@ export default {
     text-align: center;
     padding: 0 1rem;
     margin-bottom: 2rem;
+  }
+
+  &__title {
+    color: $black;
+  }
+
+  &__text {
+    color: $black;
   }
 }
 </style>

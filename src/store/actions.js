@@ -27,6 +27,7 @@ const FETCH_BOOKS = ({ commit }, payload) => {
       commit(mutationNames.STOP_LOADING);
     })
     .catch(() => {
+      commit(mutationNames.SET_BOOKS, []);
       commit(mutationNames.STOP_LOADING);
     });
 };

@@ -17,9 +17,6 @@ export default {
 @import '../../assets/scss/_mixins.scss';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   background-color: $white;
 
@@ -31,10 +28,12 @@ export default {
   &__title {
     font-size: 1rem;
     margin: 0 0 0.1rem;
+    color: $black;
   }
 
   &__text {
     font-size: 0.75rem;
+    color: $grayDark;
   }
 }
 </style>

@@ -15,7 +15,7 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  background-color: $gray-6;
+  background-color: $grayDark;
   height: 4rem;
   padding: 0.5rem 1rem;
 

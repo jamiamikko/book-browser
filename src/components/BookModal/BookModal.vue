@@ -2,13 +2,22 @@
   <transition name="modal">
     <div class="modal__mask">
       <div class="modal__wrapper" @click="closeModal">
-        <div class="modal__container" @click.stop>
-          <button class="modal__close-button" @click="closeModal">
+        <div
+          class="modal__container"
+          @click.stop
+          role="dialog"
+          aria-modal="true"
+        >
+          <button class="modal__close-button" @click="closeModal" v-focus>
             <close-icon></close-icon>
             <span class="modal__close-label">Close modal</span>
           </button>
           <div class="modal__image-wrapper" v-lazyload>
-            <img alt="" v-bind:data-src="data.covers.large" />
+            <img
+              class="modal__image"
+              alt=""
+              v-bind:data-src="data.covers.large"
+            />
           </div>
           <div class="modal__information-wrapper">
             <h2 class="modal__title">
@@ -28,16 +37,16 @@
   </transition>
 </template>
 <script>
-import store from '../../store/store';
 import joinList from '../../filters/joinList';
 import lazyload from '../../directives/lazyload';
+import focus from '../../directives/focus';
 import CloseIcon from 'vue-material-design-icons/Close';
 
 export default {
   name: 'BookModal',
-  store,
   directives: {
     lazyload,
+    focus,
   },
   filters: {
     joinList,
@@ -48,7 +57,20 @@ export default {
   components: {
     'close-icon': CloseIcon,
   },
+  mounted() {
+    document.body.classList.add('modal-open');
+    document.addEventListener('keyup', this.closeModalOnEscape);
+  },
+  destroyed() {
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keyup', this.closeModalOnEscape);
+  },
   methods: {
+    closeModalOnEscape(event) {
+      if (event.keyCode === 27) {
+        this.closeModal();
+      }
+    },
     closeModal() {
       this.$store.dispatch('CLOSE_MODAL');
     },
@@ -82,7 +104,12 @@ export default {
     background-color: $white;
     margin: 0 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 0.25rem 0.75rem $gray-4;
+    box-shadow: 0 0.25rem 0.75rem $gray;
+    max-height: calc(100vh - 2rem);
+  }
+
+  &__image {
+    max-height: calc(100vh - 18rem);
   }
 
   &__image-wrapper {
@@ -99,10 +126,12 @@ export default {
   &__title {
     margin: 0 0 0.75rem;
     font-size: 1.4rem;
+    color: black;
   }
 
   &__authors {
     font-size: 1rem;
+    color: black;
   }
 
   &__close-button {
@@ -112,7 +141,7 @@ export default {
     font-size: 1.75rem;
     margin: 0.5rem 0 0 0.5rem;
     cursor: pointer;
-    color: $gray-6;
+    color: $grayDark;
 
     &:hover,
     &:focus {

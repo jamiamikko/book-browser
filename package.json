@@ -10,7 +10,7 @@
     "deploy": "yarn test && yarn build && firebase deploy"
   },
   "dependencies": {
-    "core-js": "3.6.4",
+    "core-js": "3.31.1",
     "superagent": "5.2.2",
     "vue": "2.6.11",
     "vue-material-design-icons": "4.5.0",
